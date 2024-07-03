@@ -12,3 +12,8 @@ const updateTodo = zod.object({
     description: zod.string().optional(),
     done: zod.boolean().optional()
 });
+
+module.exports = {
+    Todo,
+    updateTodo
+};
