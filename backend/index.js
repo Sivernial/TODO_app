@@ -11,8 +11,10 @@ app.get('/', (req, res) => {
 });
 
 app.post(`/Todo`, async (req, res) => {
-    const createPayload=req.body;
+    const createPayload = req.body;
     const payload = createTodo.safeParse(createPayload);
+
+    console.log(payload);
     if (!payload.success) {
         res.status(400).json({ error: "You sent the wrong data" });
         return;
@@ -28,7 +30,7 @@ app.post(`/Todo`, async (req, res) => {
     
 });
 
-app.get(`/Todos`, async (req, res) => { 
+app.get(`/Todo`, async (req, res) => { 
     const todos = await todo.find({});
     res.json(todos);
 });
